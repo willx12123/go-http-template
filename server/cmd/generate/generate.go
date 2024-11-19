@@ -3,7 +3,7 @@ package main
 import (
 	"gorm.io/gen"
 
-	"server/internal/dal/mysql/querygen"
+	"server/internal/dal/db/querygen"
 	"server/internal/types/model"
 )
 

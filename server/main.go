@@ -1,7 +1,7 @@
 package main
 
 import (
-	"server/internal/dal/mysql"
+	"server/internal/dal/db"
 	"server/internal/pkg/config"
 	"server/internal/pkg/logger"
 	"server/internal/pkg/validator"
@@ -13,7 +13,7 @@ func main() {
 	logger.Init()
 	validator.Init()
 
-	mysql.Init()
+	db.Init()
 
 	srver.Init()
 }

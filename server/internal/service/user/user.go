@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"server/internal/dal/mysql/query"
+	"server/internal/dal/db/query"
 	"server/internal/types/model"
 )
 

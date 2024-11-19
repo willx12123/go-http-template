@@ -1,4 +1,4 @@
-package mysql
+package db
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"server/internal/dal/mysql/query"
+	"server/internal/dal/db/query"
 	"server/internal/pkg/config"
 )
 
