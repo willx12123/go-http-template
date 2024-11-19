@@ -1,0 +1,15 @@
+*.exe
+*.db
+*.log
+
+.vscode
+.idea
+
+.DS_Store
+
+node_modules
+
+build
+build.zip
+
+*.tsbuildinfo

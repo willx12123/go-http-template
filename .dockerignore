@@ -1,0 +1,76 @@
+# flyctl launch added from .gitignore
+**\*.exe
+**\*.db
+**\*.log
+
+**\.vscode
+**\.idea
+
+**\.DS_Store
+
+**\node_modules
+
+**\output
+**\output.zip
+
+**\*.tsbuildinfo
+
+# flyctl launch added from client\.gitignore
+# Logs
+client\**\logs
+client\**\*.log
+client\**\npm-debug.log*
+client\**\yarn-debug.log*
+client\**\yarn-error.log*
+client\**\pnpm-debug.log*
+client\**\lerna-debug.log*
+
+client\**\node_modules
+client\**\dist
+client\**\dist-ssr
+client\**\*.local
+
+# Editor directories and files
+client\**\.vscode\*
+!client\**\.vscode\extensions.json
+client\**\.idea
+client\**\.DS_Store
+client\**\*.suo
+client\**\*.ntvs*
+client\**\*.njsproj
+client\**\*.sln
+client\**\*.sw?
+
+# flyctl launch added from client\.idea\.gitignore
+# Default ignored files
+client\.idea\shelf
+client\.idea\workspace.xml
+# Editor-based HTTP Client requests
+client\.idea\httpRequests
+
+# flyctl launch added from client\node_modules\.pnpm\ometa@0.2.2\node_modules\ometa\.gitignore
+client\node_modules\.pnpm\ometa@0.2.2\node_modules\ometa\**\*.swp
+
+# flyctl launch added from client\node_modules\.pnpm\scss@0.2.4\node_modules\scss\.gitignore
+client\node_modules\.pnpm\scss@0.2.4\node_modules\scss\**\*.swp
+client\node_modules\.pnpm\scss@0.2.4\node_modules\scss\**\.DS_Store
+client\node_modules\.pnpm\scss@0.2.4\node_modules\scss\**\node_modules
+
+# flyctl launch added from client\node_modules\.pnpm\tailwindcss@3.4.13\node_modules\tailwindcss\stubs\.gitignore
+!client\node_modules\.pnpm\tailwindcss@3.4.13\node_modules\tailwindcss\stubs\**\*
+
+# flyctl launch added from server\.gitignore
+server\**\server
+server\**\server.exe
+server\**\*.db
+
+# flyctl launch added from server\.idea\.gitignore
+# Default ignored files
+server\.idea\shelf
+server\.idea\workspace.xml
+# Editor-based HTTP Client requests
+server\.idea\httpRequests
+# Datasource local storage ignored files
+server\.idea\dataSources
+server\.idea\dataSources.local.xml
+fly.toml

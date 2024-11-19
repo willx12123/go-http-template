@@ -1,0 +1,19 @@
+package main
+
+import (
+	"server/internal/dal/mysql"
+	"server/internal/pkg/config"
+	"server/internal/pkg/logger"
+	"server/internal/pkg/validator"
+	"server/internal/srver"
+)
+
+func main() {
+	config.Init()
+	logger.Init()
+	validator.Init()
+
+	mysql.Init()
+
+	srver.Init()
+}
