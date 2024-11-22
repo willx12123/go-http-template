@@ -23,3 +23,6 @@ More info please read on [gorm](https://gorm.io/docs/) and [gorm_gen](https://go
 ### Authenticate
 
 The default method for authentication uses JWT in the `Authorization` header. You have the flexibility to implement OAuth2 or other methods as needed.
+
+- Login api: `/api/v1/login`
+- Register api: `/api/v1/register`
