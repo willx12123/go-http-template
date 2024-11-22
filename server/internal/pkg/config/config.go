@@ -39,11 +39,11 @@ const (
 var (
 	goEnv string
 
-	defaultConf *AppConfig
+	defaultConf AppConfig
 )
 
 func Default() *AppConfig {
-	return defaultConf
+	return &defaultConf
 }
 
 func IsProd() bool {
@@ -53,20 +53,7 @@ func IsProd() bool {
 func Init() {
 	loadEnv()
 
-	var databaseConfig DatabaseConfig
-	envconfig.MustProcess("database", &databaseConfig)
-
-	var httpConfig HTTPConfig
-	envconfig.MustProcess("http", &httpConfig)
-
-	var adminConfig AdminConfig
-	envconfig.MustProcess("admin", &adminConfig)
-
-	defaultConf = &AppConfig{
-		HTTP:     &httpConfig,
-		Database: &databaseConfig,
-		Admin:    &adminConfig,
-	}
+	envconfig.MustProcess("", &defaultConf)
 }
 
 func loadEnv() {
