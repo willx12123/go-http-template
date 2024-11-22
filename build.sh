@@ -2,7 +2,6 @@
 
 set -e
 
-# 定义目录路径
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUT_DIR="$SCRIPT_DIR/build"
 
@@ -14,7 +13,6 @@ SERVER_CONFIG_FILE="$SERVER_PATH/.env"
 SERVER_CONFIG_FILE_PROD="$SERVER_PATH/.env.production"
 SERVER_EXEC_FILE="$SERVER_PATH/server"
 
-# 处理 ONLY 环境变量
 if [ -n "$ONLY" ]; then
   IFS=',' read -ra ONLY_ARRAY <<< "$ONLY"
   for i in "${!ONLY_ARRAY[@]}"; do
