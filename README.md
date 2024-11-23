@@ -1,5 +1,11 @@
 # go-http-project-template
 
+This project is not a framework, in fact, I believe a framework is not necessary to accomplish tasks.
+
+It is simply the project structure I use most frequently, including various commonly used libraries and usage recommendations. There are also some integrations between libraries, such as using the high-performance `sonic` to replace the default `encoding/json` in `gin`.
+
+This project structure has helped me develop many projects, and I hope it can help you as well.
+
 ## FrontEnd
 
 For creating the frontend project, it is recommended to use `vite` with the following command:
