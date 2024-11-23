@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 
 	"server/internal/handler"
+	"server/internal/middleware"
 )
 
 func routes(r *gin.Engine) {
@@ -16,5 +17,9 @@ func routes(r *gin.Engine) {
 
 		apiV1.POST("/register", handler.User.Register)
 		apiV1.POST("/login", handler.User.Login)
+
+		authRequired := apiV1.Group("/")
+		authRequired.Use(middleware.JwtAuth)
+		//authRequired.POST("/xx", handler)
 	}
 }
