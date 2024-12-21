@@ -10,8 +10,12 @@ import (
 
 const fieldLogID = "log_id"
 
-func WithLogID(ctx *gin.Context) {
-	ctx.Set(fieldLogID, slog.String(fieldLogID, uuid.NewString()))
+func WithLogID(ctx *gin.Context, logID string) string {
+	if logID == "" {
+		logID = uuid.NewString()
+	}
+	ctx.Set(fieldLogID, slog.String(fieldLogID, logID))
+	return logID
 }
 
 type ctxHandler struct {

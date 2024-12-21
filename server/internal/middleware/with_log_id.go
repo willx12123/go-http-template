@@ -6,7 +6,10 @@ import (
 	"server/internal/pkg/logger"
 )
 
+const headerFieldLogID = "X-LOG-ID"
+
 func WithLogID(c *gin.Context) {
-	logger.WithLogID(c)
+	logID := logger.WithLogID(c, c.GetHeader(headerFieldLogID))
 	c.Next()
+	c.Header(headerFieldLogID, logID)
 }
