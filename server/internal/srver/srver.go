@@ -20,6 +20,7 @@ func Init() {
 	binding.Validator = validator.NewGinValidator()
 
 	r.Use(
+		middleware.WithLogID,
 		middleware.Logger,
 		gin.Recovery(),
 	)

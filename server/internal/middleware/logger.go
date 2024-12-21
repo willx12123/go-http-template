@@ -1,12 +1,13 @@
 package middleware
 
 import (
+	"log/slog"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
 
 	"server/internal/pkg/logger"
+	"server/internal/pkg/logger/attr"
 )
 
 func Logger(c *gin.Context) {
@@ -15,20 +16,21 @@ func Logger(c *gin.Context) {
 	latencyTime := time.Since(startTime).Milliseconds()
 	statusCode := c.Writer.Status()
 
-	var logFn func(msg string, fields ...zap.Field)
+	var logFn logger.LogFn
 	if statusCode >= 200 && statusCode < 300 {
-		logFn = logger.Default.Info
+		logFn = logger.InfoContext
 	} else if statusCode >= 500 {
-		logFn = logger.Default.Error
+		logFn = logger.ErrorContext
 	} else {
-		logFn = logger.Default.Warn
+		logFn = logger.InfoContext
 	}
 	logFn(
+		c,
 		"[middleware.Logger] api request",
-		zap.Int("status", statusCode),
-		zap.String("method", c.Request.Method),
-		zap.String("uri", c.Request.RequestURI),
-		zap.Int64("cost", latencyTime),
-		zap.String("ip", c.ClientIP()),
+		attr.Int("status", statusCode),
+		slog.String("method", c.Request.Method),
+		slog.String("uri", c.Request.RequestURI),
+		slog.Int64("cost", latencyTime),
+		slog.String("ip", c.ClientIP()),
 	)
 }
