@@ -61,6 +61,16 @@ Should there be any changes to `internal/types/model` or `internal/dal/db/queryg
 
 More info please read on [gorm](https://gorm.io/docs/) and [gorm_gen](https://gorm.io/gen/).
 
+### Config and Env
+
+`github.com/kelseyhightower/envconfig` is a good way to set ENV to go struct.
+
+Many platform like **fly.io** or **heroku** always use env variables to set access key or database password.
+
+`github.com/joho/godotenv` will help use merge you own `.env` file and the current ENV.
+
+`.env` will merge with `.env.production` or `.env.development`. `GO_ENV` 
+
 ### Authenticate
 
 The default method for authentication uses JWT in the `Authorization` header. You have the flexibility to implement OAuth2 or other methods as needed.
@@ -90,3 +100,27 @@ For APIs that require authentication, include them under `authRequired`.
 In the handler, use `authenticate.GetCurrentUser(ctx)` to retrieve the user associated with the current token.
 
 If you need to add more information to the JWT or modify its expiration time, update the `TokenClaims` struct in `internal/service/authenticate/jwt.go`. By default, it only includes `UserID`.
+
+### Logger
+
+#### Log in code
+
+`slog` is an excellent tool for managing your logger, and it allows you to use any logger as its backend.
+
+By default, `zerolog` is a great choice.
+
+```go
+import (
+  "server/internal/pkg/logger"
+  "server/internal/pkg/logger/attr"
+)
+
+
+logger.InfoContext(ctx, "hello request", slog.String("key", "value"))
+logger.ErrorContext(ctx, "bad request", attr.Err(err))
+```
+
+##### Trace request
+
+The `log_id` is set in the `gin.Context` by `middleware.WithLogID`. Each time you use `logger.XxxContext`, the log will automatically include the `log_id` field, which is a UUID generated for every request. This `log_id` will also be returned in the response header as `X-LOG-ID`.
+
